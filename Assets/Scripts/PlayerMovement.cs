@@ -2,24 +2,31 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Horizontal movement")]
     public float speed = 1f;
     public float sprintSpeedMultiplier = 2f;
     public float crouchSpeedMultiplier = 0.5f;
     public float crouchHeightMultiplier = 0.5f;
+    [Header("Vertical movement")]
     public float jumpForce = 1f;
     public float gravityMultiplier = 1f;
+    public Transform legsPosition;
+    public float legsRadius = 0.5f;
+    public LayerMask groundMask;
+
+    [Header("Debug info")]
+    [SerializeField] bool isCrouching = false;
+    [SerializeField] Vector3 gravityVelocity;
+    [SerializeField] bool grounded;
 
     CharacterController characterController;
-    [SerializeField] bool isCrouching = false;
-    Vector3 gravityVelocity;
-    bool grounded;
 
     void Start() {
         characterController = GetComponent<CharacterController>();
     }
 
     void Update() {
-        grounded = characterController.isGrounded;
+        grounded = GetOnGround();
         HandleCrouching();
         HandleMovement();
         HandleJumping();
@@ -36,12 +43,11 @@ public class PlayerMovement : MonoBehaviour
                 characterController.height /= crouchHeightMultiplier;
                 characterController.center -= Vector3.down * (characterController.height * (1 - crouchHeightMultiplier)) / 2;
             }
-            // if (characterController.isGrounded) rb.AddForce(Vector3.up * (characterController.height / 5), ForceMode.VelocityChange);
         }
     }
 
     void HandleJumping() {
-        if (Input.GetKeyDown(KeyCode.Space) && grounded) {
+        if (Input.GetKey(KeyCode.Space) && grounded) {
             gravityVelocity = Vector3.up * (jumpForce * gravityMultiplier);
         }
     }
@@ -58,9 +64,13 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void DoGravity() {
-        if (grounded && gravityVelocity.y < 0) gravityVelocity = Vector3.down * 0.5f;
+        if (grounded && gravityVelocity.y < 0) gravityVelocity = Vector3.zero;
         gravityVelocity += Physics.gravity * Time.deltaTime;
         characterController.Move(gravityVelocity * (Time.deltaTime * gravityMultiplier));
+    }
+
+    bool GetOnGround() {
+        return Physics.CheckSphere(legsPosition.position, legsRadius, groundMask);
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit) {
