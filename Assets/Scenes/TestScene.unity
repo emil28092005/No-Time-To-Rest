@@ -496,7 +496,6 @@ GameObject:
   - component: {fileID: 2060574367}
   - component: {fileID: 2060574366}
   - component: {fileID: 2060574365}
-  - component: {fileID: 2060574364}
   - component: {fileID: 2060574363}
   - component: {fileID: 2060574362}
   - component: {fileID: 2060574368}
@@ -523,7 +522,7 @@ MonoBehaviour:
   sprintSpeedMultiplier: 2
   crouchSpeedMultiplier: 0.5
   crouchHeightMultiplier: 0.5
-  jumpForce: 1
+  jumpForce: 5
   gravityMultiplier: 1
   isCrouching: 0
 --- !u!143 &2060574363
@@ -551,33 +550,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &2060574364
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2060574361}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!23 &2060574365
 MeshRenderer:
   m_ObjectHideFlags: 0

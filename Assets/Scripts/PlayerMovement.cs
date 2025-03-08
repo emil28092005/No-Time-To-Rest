@@ -9,21 +9,20 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 1f;
     public float gravityMultiplier = 1f;
 
-    Rigidbody rb;
     CharacterController characterController;
     [SerializeField] bool isCrouching = false;
-    Vector3 charControllerCenter;
+    Vector3 gravityVelocity;
+    bool grounded;
 
     void Start() {
-        rb = GetComponent<Rigidbody>();
         characterController = GetComponent<CharacterController>();
-        charControllerCenter = characterController.center;
     }
 
     void Update() {
+        grounded = characterController.isGrounded;
         HandleCrouching();
-        HandleJumping();
         HandleMovement();
+        HandleJumping();
         DoGravity();
     }
 
@@ -37,13 +36,13 @@ public class PlayerMovement : MonoBehaviour
                 characterController.height /= crouchHeightMultiplier;
                 characterController.center -= Vector3.down * (characterController.height * (1 - crouchHeightMultiplier)) / 2;
             }
-            if (characterController.isGrounded) rb.AddForce(Vector3.up * (characterController.height / 5), ForceMode.VelocityChange);
+            // if (characterController.isGrounded) rb.AddForce(Vector3.up * (characterController.height / 5), ForceMode.VelocityChange);
         }
     }
 
     void HandleJumping() {
-        if (Input.GetKeyDown(KeyCode.Space) && characterController.isGrounded) {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+        if (Input.GetKeyDown(KeyCode.Space) && grounded) {
+            gravityVelocity = Vector3.up * (jumpForce * gravityMultiplier);
         }
     }
 
@@ -59,8 +58,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void DoGravity() {
-        characterController.Move(rb.linearVelocity * (gravityMultiplier * Time.deltaTime));
-        if (characterController.isGrounded) rb.linearVelocity *= 0.2f;
+        if (grounded && gravityVelocity.y < 0) gravityVelocity = Vector3.down * 0.5f;
+        gravityVelocity += Physics.gravity * Time.deltaTime;
+        characterController.Move(gravityVelocity * (Time.deltaTime * gravityMultiplier));
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit) {
