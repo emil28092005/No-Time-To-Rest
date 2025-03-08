@@ -216,9 +216,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7853120362946791194, guid: b7eb279b00f6fbf4bb09461381196875, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6367444929722157375, guid: b7eb279b00f6fbf4bb09461381196875, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4976235030035833125, guid: b7eb279b00f6fbf4bb09461381196875, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3143558483194166149, guid: b7eb279b00f6fbf4bb09461381196875, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -662909361366826300, guid: b7eb279b00f6fbf4bb09461381196875, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b7eb279b00f6fbf4bb09461381196875, type: 3}
       propertyPath: m_Name
       value: Level1_0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818826380887570562, guid: b7eb279b00f6fbf4bb09461381196875, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733911823876726600, guid: b7eb279b00f6fbf4bb09461381196875, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856117470861584492, guid: b7eb279b00f6fbf4bb09461381196875, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8345129058921690494, guid: b7eb279b00f6fbf4bb09461381196875, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613709593378099745, guid: b7eb279b00f6fbf4bb09461381196875, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
