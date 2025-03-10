@@ -667,30 +667,8 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4506534449155536579, guid: 53e225dcb536a6f46b5844bb8db07fe4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 851709645}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9016311960615966999, guid: 53e225dcb536a6f46b5844bb8db07fe4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3997104640432974471}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53e225dcb536a6f46b5844bb8db07fe4, type: 3}
---- !u!1 &3997104640432974470 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9016311960615966999, guid: 53e225dcb536a6f46b5844bb8db07fe4, type: 3}
-  m_PrefabInstance: {fileID: 3997104640432974468}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3997104640432974471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3997104640432974470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3724861d6ef4a112910a3ef14207757, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapons: []
-  currentWeapon: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
