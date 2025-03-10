@@ -6,15 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="67f2cfd6-3c5a-4f31-a9bb-d0bfef006e28" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.No Time To Rest/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.No Time To Rest/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Weapons/Pistol_0.1.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Weapons/Pistol_0.1.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Eye_Enemy1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Eye_Enemy1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapons/Pistol_0.1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapons/Pistol_0.1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapons/Pistol_0.1.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapons/Pistol_0.1.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Composing.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Composing.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pistol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pistol.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Obsidian.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Obsidian/No Time To Rest.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Obsidian/No Time To Rest/.obsidian/app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Obsidian/No Time To Rest/.obsidian/appearance.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Obsidian/No Time To Rest/.obsidian/core-plugins.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Obsidian/No Time To Rest/.obsidian/graph.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Obsidian/No Time To Rest/.obsidian/workspace.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Obsidian/No Time To Rest/Welcome.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Obsidian/No Time To Rest/Welcome.md.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/PC_RPAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/PC_RPAsset.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +106,7 @@
       <option name="presentableId" value="Default" />
       <updated>1741432966619</updated>
       <workItem from="1741432968662" duration="3875000" />
-      <workItem from="1741603561654" duration="4709000" />
+      <workItem from="1741603561654" duration="5621000" />
     </task>
     <servers />
   </component>
