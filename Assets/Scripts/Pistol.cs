@@ -10,7 +10,7 @@ public class Pistol : Weapon
 
     public override void Shoot(bool keyDown, bool keyHold) {
         if (keyDown && (fireRate == 0 || currentDelay == 1 / fireRate)) {
-            Instantiate(projectilePrefab, spawnPosition.position, transform.rotation);
+            Instantiate(projectilePrefab, spawnPosition.position, spawnPosition.rotation);
             currentDelay = 0;
         }
     }
