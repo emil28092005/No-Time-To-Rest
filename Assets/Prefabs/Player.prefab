@@ -300,7 +300,7 @@ MonoBehaviour:
   sprintSpeedMultiplier: 2
   crouchSpeedMultiplier: 0.5
   crouchHeightMultiplier: 0.5
-  jumpForce: 5
+  jumpForce: 10
   gravityMultiplier: 1
   legsPosition: {fileID: 2033391409425088012}
   legsRadius: 0.2
@@ -322,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1241dd14aac57cb40a0e8493ced10162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horSpeed: 140
-  verSpeed: 100
-  verUpperBound: 45
-  verLowerBound: -45
+  horSpeed: 200
+  verSpeed: 200
+  verUpperBound: 90
+  verLowerBound: -90
