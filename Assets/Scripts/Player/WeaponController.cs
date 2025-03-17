@@ -8,9 +8,7 @@ public class WeaponController : MonoBehaviour
 
     void Start() {
         weapons = GetComponentsInChildren<Weapon>();
-        for (int i = 0; i < weapons.Length; ++i) {
-            if (i != currentWeapon) weapons[i].SetWeaponState(false);
-        }
+        if (weapons.Length > currentWeapon) weapons[currentWeapon].SetWeaponState(true);
     }
 
     void Update() {
