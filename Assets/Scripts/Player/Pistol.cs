@@ -6,10 +6,10 @@ public class Pistol : Weapon
     public Transform spawnPosition;
     public float fireRate = 1f;
 
-    float currentDelay = 0;
+    [SerializeField] float currentDelay = 0;
 
     public override void Shoot(bool keyDown, bool keyHold) {
-        if (keyDown && (fireRate == 0 || currentDelay == 1 / fireRate)) {
+        if (keyDown && (fireRate == 0 || currentDelay >= 1 / fireRate)) {
             Instantiate(projectilePrefab, spawnPosition.position, spawnPosition.rotation);
             currentDelay = 0;
         }

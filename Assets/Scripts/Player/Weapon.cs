@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-    public bool isActive { get; private set; } = true;
+    public bool isActive { get; private set; } = false;
 
     public abstract void Shoot(bool keyDown, bool keyHold);
 
