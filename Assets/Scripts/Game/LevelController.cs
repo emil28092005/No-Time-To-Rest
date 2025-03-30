@@ -7,6 +7,6 @@ public class LevelController : MonoBehaviour
     public List<Transform> spawnPoints;
 
     public void Start() {
-        Dictionary<Enemy, int> enemies = GameController.i.PopEnemies(SceneManager.GetActiveScene().name);
+        Dictionary<GameObject, int> enemies = GameController.i.PopEnemies(SceneManager.GetActiveScene().name);
     }
 }

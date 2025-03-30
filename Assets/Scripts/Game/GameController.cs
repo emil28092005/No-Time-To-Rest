@@ -14,22 +14,37 @@ public class GameController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public Dictionary<Enemy, int> PopEnemies(string sceneName) {
+    public Dictionary<GameObject, int> PopEnemies(string sceneName) {
         LevelInfo li = levels.Find(x => x.scene.name == sceneName);
-        Dictionary<Enemy, int> enemies = li.enemies;
+        Dictionary<GameObject, int> enemies = li.enemies;
         li.enemies.Clear();
         return enemies;
     }
 
-    public void AddEnemyInLevel(Enemy enemy, string sceneName) {
-        Dictionary<Enemy, int> enemies = levels.Find(x => x.scene.name == sceneName).enemies;
+    public void AddEnemyInLevel(GameObject enemy, string sceneName) {
+        Dictionary<GameObject, int> enemies = levels.Find(x => x.scene.name == sceneName).enemies;
         if (enemies.ContainsKey(enemy)) enemies[enemy] += 1;
         else enemies[enemy] = 1;
+    }
+
+    public LevelInfo GetLevel(string sceneName) {
+        return levels.Find(x => x.scene.name == sceneName);
     }
 }
 
 [Serializable]
 public class LevelInfo {
     public SceneAsset scene;
-    public Dictionary<Enemy, int> enemies;
+    public int hp;
+    public int maxHp;
+    public FactoryType factory;
+    public Dictionary<GameObject, int> enemies;
+}
+
+public enum FactoryType {
+    None,
+    Rifle,
+    Rocket,
+    Minigun,
+    Railgun
 }

@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start() {
         characterController = GetComponent<CharacterController>();
-        ground = GetComponent<GroundDetector>();
+        ground = GetComponentInChildren<GroundDetector>();
     }
 
     void Update() {
