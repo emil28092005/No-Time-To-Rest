@@ -17,16 +17,18 @@ public class PlayerMovement : MonoBehaviour
     [Header("Debug info")]
     [SerializeField] bool isCrouching = false;
     [SerializeField] Vector3 gravityVelocity;
-    [SerializeField] bool grounded;
+    [SerializeField] bool grounded = false;
 
     CharacterController characterController;
+    GroundDetector ground;
 
     void Start() {
         characterController = GetComponent<CharacterController>();
+        ground = GetComponentInChildren<GroundDetector>();
     }
 
     void Update() {
-        grounded = GetOnGround();
+        grounded = ground.onGround;
         HandleCrouching();
         HandleMovement();
         HandleJumping();
@@ -67,10 +69,6 @@ public class PlayerMovement : MonoBehaviour
         if (grounded && gravityVelocity.y < 0) gravityVelocity = Vector3.zero;
         gravityVelocity += Physics.gravity * Time.deltaTime;
         characterController.Move(gravityVelocity * (Time.deltaTime * gravityMultiplier));
-    }
-
-    bool GetOnGround() {
-        return Physics.CheckSphere(legsPosition.position, legsRadius, groundMask);
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit) {

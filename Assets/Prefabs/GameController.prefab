@@ -45,5 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
-  - scene: {fileID: 102900000, guid: 6a72d2724c840fd47aab3aea136d312f, type: 3}
-    enemies: []
+  - scene: {fileID: 102900000, guid: a1fcdf91e546853e5b455db87068027d, type: 3}
+    hp: 0
+    maxHp: 100
+    factory: 0
+  - scene: {fileID: 102900000, guid: f5bbc8313924a074dbd2dad1bcb13fe1, type: 3}
+    hp: 0
+    maxHp: 100
+    factory: 1
+  - scene: {fileID: 102900000, guid: 32cdfc1d09a868fb29f15ecf4b9a69a9, type: 3}
+    hp: 0
+    maxHp: 100
+    factory: 2
