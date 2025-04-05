@@ -1,0 +1,192 @@
+{
+  "main": {
+    "id": "cac1637930588ef5",
+    "type": "split",
+    "children": [
+      {
+        "id": "61710c602f86ae1a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3e5e2da14de7af1d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Design document.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Design document"
+            }
+          }
+        ]
+      },
+      {
+        "id": "aca139be6840f8f2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4b1e78f778e34b7f",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b33e039ce28e35db",
+    "type": "split",
+    "children": [
+      {
+        "id": "c4dd6da462866f32",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f43b0d30176c0f62",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "08f11abcf75865c9",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "f43a966b676616d2",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "f292862b172e8fab",
+    "type": "split",
+    "children": [
+      {
+        "id": "2e88fd60beaf8d8f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4c6e32f9bbbdfa13",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Design document.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Design document"
+            }
+          },
+          {
+            "id": "0a048b7cda6802ff",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Design document.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Design document"
+            }
+          },
+          {
+            "id": "fd566a7baf3b48db",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "27b82a447efbe870",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Design document.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Design document"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "3e5e2da14de7af1d",
+  "lastOpenFiles": [
+    "Welcome.md",
+    "Design document.md"
+  ]
+}
