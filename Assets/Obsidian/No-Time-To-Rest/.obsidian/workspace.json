@@ -11,14 +11,10 @@
             "id": "3e5e2da14de7af1d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Design document.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Design document"
+              "title": "New tab"
             }
           }
         ]
@@ -110,7 +106,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Design document.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +115,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Design document"
+              "title": "Backlinks"
             }
           },
           {
@@ -129,12 +124,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Design document.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Design document"
+              "title": "Outgoing links"
             }
           },
           {
@@ -158,13 +152,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Design document.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Design document"
+              "title": "Outline"
             }
           }
         ]
@@ -186,7 +179,7 @@
   },
   "active": "3e5e2da14de7af1d",
   "lastOpenFiles": [
-    "Welcome.md",
-    "Design document.md"
+    "Design document.md",
+    "Welcome.md"
   ]
 }
