@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class WeaponController : MonoBehaviour
@@ -12,6 +13,22 @@ public class WeaponController : MonoBehaviour
     }
 
     void Update() {
+        ChangeActiveWeapon((currentWeapon + (int)Input.mouseScrollDelta.y) % weapons.Length);
+        CheckButtonsForChangeWeapon();
         if (Input.GetMouseButton(0) && weapons[currentWeapon].isActive) weapons[currentWeapon].Shoot(Input.GetMouseButtonDown(0), Input.GetMouseButton(0));
+    }
+
+    void CheckButtonsForChangeWeapon() {
+        KeyCode[] keys = {KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5};
+        foreach (var (key, i) in keys.Select((val, ind) => (val, ind))) {
+            if (Input.GetKeyDown(key)) ChangeActiveWeapon(i);
+        }
+    }
+
+    void ChangeActiveWeapon(int ind) {
+        if (ind < 0 || ind >= weapons.Length || ind == currentWeapon) return;
+        weapons[currentWeapon].SetWeaponState(false);
+        weapons[ind].SetWeaponState(false);
+        currentWeapon = ind;
     }
 }
