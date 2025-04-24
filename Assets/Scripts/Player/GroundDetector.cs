@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class GroundDetector : MonoBehaviour
 {
+    public LayerMask groundMask;
     public bool onGround { get; private set; } = false;
 
-    void OnTriggerEnter(Collider other) {
-        if (other.CompareTag("Ground")) onGround = true;
+    public void OnTriggerEnter(Collider other) {
+        if ((1 << other.gameObject.layer & groundMask) != 0) onGround = true;
     }
     void OnTriggerStay(Collider other) { OnTriggerEnter(other); }
     void OnTriggerExit(Collider other) {
-        if (other.CompareTag("Ground")) onGround = false;
+        if ((1 << other.gameObject.layer & groundMask) != 0) onGround = false;
     }
 }
