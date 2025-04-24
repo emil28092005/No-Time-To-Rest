@@ -40,7 +40,7 @@ public class LevelController : MonoBehaviour
 }
 
 [Serializable]
-public class SpawnPointInfo {
+public struct SpawnPointInfo {
     public Transform transform;
     public float radius;
 }

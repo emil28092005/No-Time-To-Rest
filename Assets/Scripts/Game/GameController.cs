@@ -32,12 +32,12 @@ public class GameController : MonoBehaviour
     }
 
     public void OnLevelClear(string sceneName, float timeSpent) {
-        
+
     }
 }
 
 [Serializable]
-public class LevelInfo {
+public struct LevelInfo {
     public SceneAsset scene;
     public int hp;
     public int maxHp;
