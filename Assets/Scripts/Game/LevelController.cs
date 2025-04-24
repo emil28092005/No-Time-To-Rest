@@ -1,15 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class LevelController : MonoBehaviour
 {
+    public SceneAsset deployScene;
     public List<SpawnPointInfo> spawnPoints;
 
     List<Enemy> aliveEnemies;
+    float timeSpent = 0;
 
     public void Start() {
         aliveEnemies = new List<Enemy>();
@@ -25,6 +28,14 @@ public class LevelController : MonoBehaviour
             Enemy spawnedEnemy = Instantiate(enemy, spawnVector, spawnPointInfo.transform.rotation).GetComponent<Enemy>();
             aliveEnemies.Add(spawnedEnemy);
         }
+    }
+
+    public void Update() {
+        if (aliveEnemies.All(enemy => enemy == null)) {
+            GameController.i.OnLevelClear(SceneManager.GetActiveScene().name, timeSpent);
+            SceneManager.LoadScene(deployScene.name);
+        }
+        timeSpent += Time.deltaTime;
     }
 }
 

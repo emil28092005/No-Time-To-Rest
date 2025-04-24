@@ -30,6 +30,10 @@ public class GameController : MonoBehaviour
     public LevelInfo GetLevel(string sceneName) {
         return levels.Find(x => x.scene.name == sceneName);
     }
+
+    public void OnLevelClear(string sceneName, float timeSpent) {
+        
+    }
 }
 
 [Serializable]
