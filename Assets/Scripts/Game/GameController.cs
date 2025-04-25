@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class GameController : MonoBehaviour
 {
     public static GameController i;
+    public SceneAsset deployScene;
     public List<LevelInfo> levels;
     public List<EnemyInfo> enemies;
 
@@ -47,6 +49,10 @@ public class GameController : MonoBehaviour
 
     }
 
+    public void OnLevelFailed(string sceneName, float timeSpent) {
+
+    }
+
     EnemyInfo SelectEnemyWeighted() {
         float sumWeights = enemies.Sum(enemy => enemy.weight);
         float r = Random.Range(0, sumWeights);
@@ -56,6 +62,15 @@ public class GameController : MonoBehaviour
             if (curSum >= r) return en;
         }
         return enemies[^1];
+    }
+
+    public void LoadDeployScene() {
+        SceneManager.LoadScene(deployScene.name);
+    }
+
+    public static void SetCursorState(bool locked) {
+        Cursor.lockState = locked ? CursorLockMode.Locked : CursorLockMode.None;
+        Cursor.visible = !locked;
     }
 }
 

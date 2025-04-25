@@ -4,8 +4,7 @@ using UnityEngine.SceneManagement;
 public class DeployController : MonoBehaviour
 {
     public void Start() {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        GameController.SetCursorState(true);
     }
 
     public void Deploy(string sceneName) {

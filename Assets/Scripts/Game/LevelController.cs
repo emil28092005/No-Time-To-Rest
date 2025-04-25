@@ -1,14 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class LevelController : MonoBehaviour
 {
-    public SceneAsset deployScene;
     public List<SpawnPointInfo> spawnPoints;
 
     List<Enemy> aliveEnemies;
@@ -33,9 +31,14 @@ public class LevelController : MonoBehaviour
     public void Update() {
         if (aliveEnemies.All(enemy => enemy == null)) {
             GameController.i.OnLevelClear(SceneManager.GetActiveScene().name, timeSpent);
-            SceneManager.LoadScene(deployScene.name);
+            GameController.i.LoadDeployScene();
         }
         timeSpent += Time.deltaTime;
+    }
+
+    public void OnPlayerDie() {
+        GameController.i.OnLevelFailed(SceneManager.GetActiveScene().name, timeSpent);
+        GameController.i.LoadDeployScene();
     }
 }
 
