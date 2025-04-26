@@ -88,6 +88,16 @@ public class GameController : MonoBehaviour
         }
         return false;
     }
+
+    public static string GetBulletTypeString(BulletType bulletType) {
+        return bulletType switch {
+            BulletType.Rifle => "Rifle",
+            BulletType.Minigun => "Minigun",
+            BulletType.Rocket => "Rocket",
+            BulletType.Railgun => "Railgun",
+            _ => "None",
+        };
+    }
 }
 
 [Serializable]

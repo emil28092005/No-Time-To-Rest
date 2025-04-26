@@ -521,14 +521,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4506534449155536579}
     m_Modifications:
-    - target: {fileID: 1283704224102497885, guid: a8be43ab8737b9b4bb440fd60a5e6ce5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1283704224102497885, guid: a8be43ab8737b9b4bb440fd60a5e6ce5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 3477561828804200004, guid: a8be43ab8737b9b4bb440fd60a5e6ce5, type: 3}
       propertyPath: m_Name
       value: Rifle_0.3
