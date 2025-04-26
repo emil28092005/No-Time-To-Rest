@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1042172676018165636}
   m_Layer: 0
-  m_Name: muzzle
+  m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,13 +24,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1587861691790886941}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.035, y: -0.0003, z: -0.0015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3191971078612809307}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &3154368798760636848
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53,15 +53,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d734c466a893eb24080a9ca70b7b501d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d734c466a893eb24080a9ca70b7b501d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d734c466a893eb24080a9ca70b7b501d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d734c466a893eb24080a9ca70b7b501d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -142,6 +142,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1562924000103655330, guid: bfe7100930f24fd52b5b66832f59cfa8, type: 3}
   spawnPosition: {fileID: 1042172676018165636}
   fireRate: 1
+  currentDelay: 0
 --- !u!4 &3191971078612809307 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d734c466a893eb24080a9ca70b7b501d, type: 3}

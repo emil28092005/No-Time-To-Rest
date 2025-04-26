@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     public SceneAsset deployScene;
     public List<LevelInfo> levels;
     public List<EnemyInfo> enemies;
+    public Dictionary<BulletType, int> inventory = new();
 
     public void Start() {
         if (i) { Destroy(gameObject); return; }
@@ -25,7 +26,10 @@ public class GameController : MonoBehaviour
         levels.ForEach(li => {
             AddEnemyInLevel(SelectEnemyWeighted().prefab, li.scene.name);
         });
-
+        foreach (BulletType i in Enum.GetValues(typeof(BulletType))) {
+            if (i == BulletType.None) continue;
+            inventory[i] = 10;
+        }
     }
 
     public Dictionary<GameObject, int> PopEnemies(string sceneName) {
@@ -72,6 +76,18 @@ public class GameController : MonoBehaviour
         Cursor.lockState = locked ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !locked;
     }
+
+    public int GetBulletCount(BulletType bulletType) {
+        return inventory[bulletType];
+    }
+
+    public bool ConsumeBullet(BulletType bulletType, int n = 1) {
+        if (inventory[bulletType] >= n) {
+            inventory[bulletType] -= n;
+            return true;
+        }
+        return false;
+    }
 }
 
 [Serializable]
@@ -79,11 +95,11 @@ public struct LevelInfo {
     public SceneAsset scene;
     public int hp;
     public int maxHp;
-    public FactoryType factory;
+    public BulletType factory;
     public Dictionary<GameObject, int> enemies;
 }
 
-public enum FactoryType {
+public enum BulletType {
     None,
     Rifle,
     Rocket,

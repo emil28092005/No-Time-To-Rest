@@ -9,11 +9,12 @@ public class WeaponController : MonoBehaviour
 
     void Start() {
         weapons = GetComponentsInChildren<Weapon>();
-        if (weapons.Length > currentWeapon) weapons[currentWeapon].SetWeaponState(true);
+        for (int i = 0; i < weapons.Length; ++i) weapons[i].SetWeaponState(i == currentWeapon);
     }
 
     void Update() {
-        ChangeActiveWeapon((currentWeapon + (int)Input.mouseScrollDelta.y) % weapons.Length);
+        if (weapons.Length == 0) return;
+        ChangeActiveWeapon((currentWeapon + (int)Input.mouseScrollDelta.y + weapons.Length) % weapons.Length);
         CheckButtonsForChangeWeapon();
         if (Input.GetMouseButton(0) && weapons[currentWeapon].isActive) weapons[currentWeapon].Shoot(Input.GetMouseButtonDown(0), Input.GetMouseButton(0));
     }
@@ -28,7 +29,7 @@ public class WeaponController : MonoBehaviour
     void ChangeActiveWeapon(int ind) {
         if (ind < 0 || ind >= weapons.Length || ind == currentWeapon) return;
         weapons[currentWeapon].SetWeaponState(false);
-        weapons[ind].SetWeaponState(false);
+        weapons[ind].SetWeaponState(true);
         currentWeapon = ind;
     }
 }
