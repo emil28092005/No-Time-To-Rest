@@ -57,3 +57,6 @@ MonoBehaviour:
     hp: 0
     maxHp: 100
     factory: 2
+  enemies:
+  - prefab: {fileID: 3602081654026665026, guid: 7ab59219438e4a241affd5e9441d9d9f, type: 3}
+    weight: 1

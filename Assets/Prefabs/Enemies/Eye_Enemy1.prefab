@@ -80,7 +80,7 @@ PrefabInstance:
       addedObject: {fileID: 4157182199899525086}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 81be7b02df0db07479a8e1a9dd56f618, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -3280827978807638765}
+      addedObject: {fileID: 285488036582896095}
   m_SourcePrefab: {fileID: 100100000, guid: 81be7b02df0db07479a8e1a9dd56f618, type: 3}
 --- !u!1 &3602081654026665026 stripped
 GameObject:
@@ -137,7 +137,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &-3280827978807638765
+--- !u!114 &285488036582896095
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,7 +146,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 3602081654026665026}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46894d927b8e6654487b876457ca8974, type: 3}
+  m_Script: {fileID: 11500000, guid: 48cddee1e4d4837418957a7b4e6315c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
+  projectilePrefab: {fileID: 1562924000103655330, guid: 6a9f72b16f60d5047974eb5893b0326a, type: 3}
+  projectileSpawnPosition: {fileID: 8051388752729122526}
+  attackRange: 10
+  fireRate: 1
+  offsetDistance: 1.5
+  currentDelay: 0
+  target: {fileID: 0}
+--- !u!4 &8051388752729122526 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3278615484307183667, guid: 81be7b02df0db07479a8e1a9dd56f618, type: 3}
+  m_PrefabInstance: {fileID: 4412476501240889619}
+  m_PrefabAsset: {fileID: 0}

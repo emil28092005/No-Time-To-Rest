@@ -10,6 +10,7 @@ public class LevelController : MonoBehaviour
     public List<SpawnPointInfo> spawnPoints;
 
     List<Enemy> aliveEnemies;
+    float timeSpent = 0;
 
     public void Start() {
         aliveEnemies = new List<Enemy>();
@@ -20,16 +21,29 @@ public class LevelController : MonoBehaviour
             enemies[enemy] -= 1;
             if (enemies[enemy] <= 0) enemies.Remove(enemy);
             SpawnPointInfo spawnPointInfo = spawnPoints[Random.Range(0, spawnPoints.Count)];
-            Vector2 circle = Random.insideUnitCircle;
+            Vector2 circle = Random.insideUnitCircle * spawnPointInfo.radius;
             Vector3 spawnVector = spawnPointInfo.transform.position + new Vector3(circle.x, 0, circle.y);
             Enemy spawnedEnemy = Instantiate(enemy, spawnVector, spawnPointInfo.transform.rotation).GetComponent<Enemy>();
             aliveEnemies.Add(spawnedEnemy);
         }
     }
+
+    public void Update() {
+        if (aliveEnemies.All(enemy => enemy == null)) {
+            GameController.i.OnLevelClear(SceneManager.GetActiveScene().name, timeSpent);
+            GameController.i.LoadDeployScene();
+        }
+        timeSpent += Time.deltaTime;
+    }
+
+    public void OnPlayerDie() {
+        GameController.i.OnLevelFailed(SceneManager.GetActiveScene().name, timeSpent);
+        GameController.i.LoadDeployScene();
+    }
 }
 
 [Serializable]
-public class SpawnPointInfo {
+public struct SpawnPointInfo {
     public Transform transform;
     public float radius;
 }

@@ -12,8 +12,7 @@ public class CameraMovement : MonoBehaviour
 
     void Start() {
         cam = GetComponentInChildren<Camera>();
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        GameController.SetCursorState(true);
     }
 
     void Update() {

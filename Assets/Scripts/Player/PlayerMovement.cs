@@ -10,9 +10,6 @@ public class PlayerMovement : MonoBehaviour
     [Header("Vertical movement")]
     public float jumpForce = 1f;
     public float gravityMultiplier = 1f;
-    public Transform legsPosition;
-    public float legsRadius = 0.5f;
-    public LayerMask groundMask;
 
     [Header("Debug info")]
     [SerializeField] bool isCrouching = false;

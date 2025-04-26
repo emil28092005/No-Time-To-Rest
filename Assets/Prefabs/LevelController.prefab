@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67f50dd8d32d83d4891b1a18fd12ec38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: []
+  deployScene: {fileID: 102900000, guid: 3dbb8dbb9a7a2f2a0bd1311c83d35a6a, type: 3}
+  spawnPoints: []
