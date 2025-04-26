@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21512d898f67c404d9a7519c0b7dcba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deployScene: {fileID: 102900000, guid: 3dbb8dbb9a7a2f2a0bd1311c83d35a6a, type: 3}
   levels:
   - scene: {fileID: 102900000, guid: a1fcdf91e546853e5b455db87068027d, type: 3}
     hp: 0
