@@ -49,12 +49,51 @@ public class GameController : MonoBehaviour
         return levels.Find(x => x.scene.name == sceneName);
     }
 
-    public void OnLevelClear(string sceneName, float timeSpent) {
-
+    void RepairLevel(string sceneName) {
+        levels = levels.Select(li => {
+            if (li.scene.name == sceneName) {
+                li.hp = Math.Clamp(li.hp + 20, 0, li.maxHp);
+            }
+            return li;
+        }).ToList();
     }
 
-    public void OnLevelFailed(string sceneName, float timeSpent) {
+    void DamageLevels(string sceneName, float timeSpent) {
+        levels = levels.Select(li => {
+            if (li.scene.name != sceneName && !IsLevelDestroyed(li.scene.name)) {
+                int damage = (int)(li.enemies.Values.Sum(x => x) * timeSpent / 10);
+                li.hp = Math.Clamp(li.hp - damage, 0, li.maxHp);
+            }
+            return li;
+        }).ToList();
+    }
 
+    void SpawnEnemies(string sceneName, float timeSpent) {
+        int enemiesToAdd = (int)(timeSpent / 10);
+        levels.ForEach(li => {
+            if (li.scene.name == sceneName || IsLevelDestroyed(li.scene.name)) return;
+            for (int i = 0; i < enemiesToAdd; ++i) AddEnemyInLevel(SelectEnemyWeighted().prefab, li.scene.name);
+        });
+    }
+
+    void AddBullets() {
+        levels.ForEach(li => {
+            if (!IsLevelDestroyed(li.scene.name) && li.factory != BulletType.None) inventory[li.factory] += 10;
+        });
+    }
+
+    public void OnLevelClear(string sceneName, float timeSpent) {
+        RepairLevel(sceneName);
+        DamageLevels(sceneName, timeSpent);
+        SpawnEnemies(sceneName, timeSpent);
+        AddBullets();
+    }
+
+    public void OnLevelFailed(string sceneName, float timeSpent, List<Enemy> aliveEnemies) {
+        aliveEnemies.ForEach(enemy => AddEnemyInLevel(enemy.prefab, sceneName));
+        DamageLevels(sceneName, timeSpent);
+        SpawnEnemies(sceneName, timeSpent * 1.5f);
+        AddBullets();
     }
 
     EnemyInfo SelectEnemyWeighted() {
@@ -97,6 +136,10 @@ public class GameController : MonoBehaviour
             BulletType.Railgun => "Railgun",
             _ => "None",
         };
+    }
+
+    public bool IsLevelDestroyed(string sceneName) {
+        return GetLevel(sceneName).hp <= 0;
     }
 }
 
