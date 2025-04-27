@@ -24,6 +24,7 @@ public class LevelController : MonoBehaviour
             Vector2 circle = Random.insideUnitCircle * spawnPointInfo.radius;
             Vector3 spawnVector = spawnPointInfo.transform.position + new Vector3(circle.x, 0, circle.y);
             Enemy spawnedEnemy = Instantiate(enemy, spawnVector, spawnPointInfo.transform.rotation).GetComponent<Enemy>();
+            spawnedEnemy.prefab = enemy;
             aliveEnemies.Add(spawnedEnemy);
         }
     }
@@ -37,7 +38,7 @@ public class LevelController : MonoBehaviour
     }
 
     public void OnPlayerDie() {
-        GameController.i.OnLevelFailed(SceneManager.GetActiveScene().name, timeSpent);
+        GameController.i.OnLevelFailed(SceneManager.GetActiveScene().name, timeSpent, aliveEnemies);
         GameController.i.LoadDeployScene();
     }
 }
