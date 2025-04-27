@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class Rifle : Weapon
+public class Minigun : Weapon
 {
     public GameObject projectilePrefab;
     public Transform spawnPosition;
-    public float fireRate = 3f;
+    public float fireRate = 10f;
 
     [SerializeField] float currentDelay = 0;
 

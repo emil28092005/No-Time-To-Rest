@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc7bc1baad25a9459ee673b6d502363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletType: 1
   projectilePrefab: {fileID: 1562924000103655330, guid: bfe7100930f24fd52b5b66832f59cfa8, type: 3}
   spawnPosition: {fileID: 1283704224102497885}
   fireRate: 3
