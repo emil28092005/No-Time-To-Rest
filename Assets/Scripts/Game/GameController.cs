@@ -69,7 +69,7 @@ public class GameController : MonoBehaviour
     }
 
     void SpawnEnemies(string sceneName, float timeSpent) {
-        int enemiesToAdd = (int)(timeSpent / 10);
+        int enemiesToAdd = (int)(timeSpent / 10) + 1;
         levels.ForEach(li => {
             if (li.scene.name == sceneName || IsLevelDestroyed(li.scene.name)) return;
             for (int i = 0; i < enemiesToAdd; ++i) AddEnemyInLevel(SelectEnemyWeighted().prefab, li.scene.name);
