@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleJumping() {
         if (Input.GetKey(KeyCode.Space) && grounded) {
-            gravityVelocity = Vector3.up * (jumpForce * gravityMultiplier);
+            gravityVelocity = Vector3.up * jumpForce;
         }
     }
 
@@ -64,8 +64,8 @@ public class PlayerMovement : MonoBehaviour
 
     void DoGravity() {
         if (grounded && gravityVelocity.y < 0) gravityVelocity = Vector3.zero;
-        gravityVelocity += Physics.gravity * Time.deltaTime;
-        characterController.Move(gravityVelocity * (Time.deltaTime * gravityMultiplier));
+        gravityVelocity += Physics.gravity * (Time.deltaTime * gravityMultiplier);
+        characterController.Move(gravityVelocity * Time.deltaTime);
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit) {

@@ -41,6 +41,8 @@ public class LevelController : MonoBehaviour
         GameController.i.OnLevelFailed(SceneManager.GetActiveScene().name, timeSpent, aliveEnemies);
         GameController.i.LoadDeployScene();
     }
+
+    public float GetTimeSpent() { return timeSpent; }
 }
 
 [Serializable]
