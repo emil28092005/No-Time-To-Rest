@@ -44,20 +44,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21512d898f67c404d9a7519c0b7dcba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deployScene: {fileID: 102900000, guid: 3dbb8dbb9a7a2f2a0bd1311c83d35a6a, type: 3}
+  deploySceneName: DeployMenu
   levels:
-  - scene: {fileID: 102900000, guid: a1fcdf91e546853e5b455db87068027d, type: 3}
+  - sceneName: Level1
     hp: 0
     maxHp: 100
     factory: 0
-  - scene: {fileID: 102900000, guid: f5bbc8313924a074dbd2dad1bcb13fe1, type: 3}
+  - sceneName: Level2
     hp: 0
     maxHp: 100
     factory: 1
-  - scene: {fileID: 102900000, guid: 32cdfc1d09a868fb29f15ecf4b9a69a9, type: 3}
+  - sceneName: Level3
     hp: 0
     maxHp: 100
-    factory: 2
+    factory: 3
   enemies:
   - prefab: {fileID: 3602081654026665026, guid: 7ab59219438e4a241affd5e9441d9d9f, type: 3}
     weight: 1
