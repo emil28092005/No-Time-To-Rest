@@ -11,6 +11,7 @@ public class DeployController : MonoBehaviour
 
     public void Deploy(string sceneName) {
         LevelInfo level = GameController.i.GetLevel(sceneName);
+        if (GameController.i.IsLevelDestroyed(sceneName)) return;
         SceneManager.LoadScene(level.sceneName);
     }
 

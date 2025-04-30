@@ -49,15 +49,18 @@ MonoBehaviour:
   - sceneName: Level1
     hp: 0
     maxHp: 100
-    factory: 0
+    factory: 1
+    bulletsGenerate: 15
   - sceneName: Level2
     hp: 0
     maxHp: 100
-    factory: 1
+    factory: 3
+    bulletsGenerate: 50
   - sceneName: Level3
     hp: 0
     maxHp: 100
-    factory: 3
+    factory: 2
+    bulletsGenerate: 5
   enemies:
   - prefab: {fileID: 3602081654026665026, guid: 7ab59219438e4a241affd5e9441d9d9f, type: 3}
     weight: 1

@@ -77,7 +77,7 @@ public class GameController : MonoBehaviour
 
     void AddBullets() {
         levels.ForEach(li => {
-            if (!IsLevelDestroyed(li.sceneName) && li.factory != BulletType.None) inventory[li.factory] += 10;
+            if (!IsLevelDestroyed(li.sceneName) && li.factory != BulletType.None) inventory[li.factory] += li.bulletsGenerate;
         });
     }
 
@@ -148,6 +148,7 @@ public struct LevelInfo {
     public int hp;
     public int maxHp;
     public BulletType factory;
+    public int bulletsGenerate;
     public Dictionary<GameObject, int> enemies;
 }
 
