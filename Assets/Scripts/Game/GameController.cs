@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour
     public List<EnemyInfo> enemies;
     public Dictionary<BulletType, int> inventory = new();
 
-    public void Start() {
+    public void Awake() {
         if (i) { Destroy(gameObject); return; }
         i = GetComponent<GameController>();
         DontDestroyOnLoad(gameObject);

@@ -31,8 +31,11 @@ public class PlayerMovement : MonoBehaviour
         HandleJumping();
         HandleMovement();
         HandleDashing();
-        DoGravity();
         HandleConstantVelocity();
+    }
+
+    void FixedUpdate() {
+        DoGravity();
     }
 
     void HandleJumping() {
@@ -70,12 +73,12 @@ public class PlayerMovement : MonoBehaviour
     void DoGravity() {
         if (gravityInactive > 0) {
             gravityVelocity = Vector3.zero;
-            gravityInactive = Mathf.Max(gravityInactive -= Time.deltaTime, 0);
+            gravityInactive = Mathf.Max(gravityInactive -= Time.fixedDeltaTime, 0);
             return;
         }
         if (grounded && gravityVelocity.y < 0) gravityVelocity = Vector3.zero;
-        gravityVelocity += Physics.gravity * (Time.deltaTime * gravityMultiplier);
-        characterController.Move(gravityVelocity * Time.deltaTime);
+        gravityVelocity += Physics.gravity * (Time.fixedDeltaTime * gravityMultiplier);
+        characterController.Move(gravityVelocity * Time.fixedDeltaTime);
     }
 
     void HandleConstantVelocity() {
