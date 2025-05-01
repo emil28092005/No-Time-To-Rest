@@ -25,7 +25,7 @@ public class RocketProjectile : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach (Collider collider in colliders) {
             if (collider.gameObject.CompareTag("Enemy")) {
-                Enemy enemy = other.GetComponent<Enemy>();
+                Enemy enemy = collider.GetComponent<Enemy>();
                 enemy.DealDamage(damage);
             }
         }
