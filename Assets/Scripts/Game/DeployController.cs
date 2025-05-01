@@ -19,4 +19,8 @@ public class DeployController : MonoBehaviour
         LevelInfo levelInfo = GameController.i.GetLevel(levelName);
         string s = $"HP: {levelInfo.hp}/{levelInfo.maxHp}\nEnemies: {levelInfo.enemies.Values.Sum(x => x)}\nBullet type: {GameController.GetBulletTypeString(levelInfo.factory)}";
     }
+
+    public void CloseGame() {
+        Application.Quit();
+    }
 }
