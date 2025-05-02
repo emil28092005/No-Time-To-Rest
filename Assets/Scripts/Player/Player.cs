@@ -16,4 +16,6 @@ public class Player : MonoBehaviour
             FindAnyObjectByType<LevelController>().OnPlayerDie();
         }
     }
+
+    public float GetHp() { return hp; }
 }

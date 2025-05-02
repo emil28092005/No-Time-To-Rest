@@ -3,18 +3,20 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Horizontal movement")]
-    public float speed = 1f;
-    public float sprintSpeedMultiplier = 2f;
-    public float crouchSpeedMultiplier = 0.5f;
-    public float crouchHeightMultiplier = 0.5f;
+    public float speed = 5f;
+    public float dashVelocity = 10f;
+    public float dashTime = 0.5f;
     [Header("Vertical movement")]
     public float jumpForce = 1f;
     public float gravityMultiplier = 1f;
 
     [Header("Debug info")]
-    [SerializeField] bool isCrouching = false;
     [SerializeField] Vector3 gravityVelocity;
     [SerializeField] bool grounded = false;
+    [SerializeField] float movementInactive = 0;
+    [SerializeField] float gravityInactive = 0;
+    [SerializeField] Vector3 constantVelocity = Vector3.zero;
+    [SerializeField] float constantVelocityActive = 0;
 
     CharacterController characterController;
     GroundDetector ground;
@@ -26,46 +28,69 @@ public class PlayerMovement : MonoBehaviour
 
     void Update() {
         grounded = ground.onGround;
-        HandleCrouching();
-        HandleMovement();
         HandleJumping();
+        HandleMovement();
+        HandleDashing();
+        HandleConstantVelocity();
+    }
+
+    void FixedUpdate() {
         DoGravity();
     }
 
-    void HandleCrouching() {
-        if (Input.GetKeyDown(KeyCode.C)) {
-            isCrouching = !isCrouching;
-            if (isCrouching) {
-                characterController.center += Vector3.down * (characterController.height * (1 - crouchHeightMultiplier)) / 2;
-                characterController.height *= crouchHeightMultiplier;
-            } else {
-                characterController.height /= crouchHeightMultiplier;
-                characterController.center -= Vector3.down * (characterController.height * (1 - crouchHeightMultiplier)) / 2;
-            }
-        }
-    }
-
     void HandleJumping() {
+        if (movementInactive > 0) return;
         if (Input.GetKey(KeyCode.Space) && grounded) {
-            gravityVelocity = Vector3.up * (jumpForce * gravityMultiplier);
+            gravityVelocity = Vector3.up * jumpForce;
         }
     }
 
     void HandleMovement() {
+        if (movementInactive > 0) {
+            movementInactive = Mathf.Max(movementInactive -= Time.deltaTime, 0);
+            return;
+        }
         float horInput = Input.GetAxis("Horizontal");
         float verInput = Input.GetAxis("Vertical");
         Vector3 movementVec = new(horInput, 0, verInput);
         movementVec = transform.TransformDirection(movementVec);
-        movementVec = Vector3.ClampMagnitude(movementVec * speed, speed) * Time.deltaTime;
-        float modifier = isCrouching ? crouchSpeedMultiplier : Input.GetKey(KeyCode.LeftShift) ? sprintSpeedMultiplier : 1;
+        movementVec = Vector3.ClampMagnitude(movementVec * speed, speed);
+        characterController.Move(movementVec * Time.deltaTime);
+    }
 
-        characterController.Move(movementVec * modifier);
+    void HandleDashing() {
+        if (Input.GetKeyDown(KeyCode.LeftShift) && constantVelocityActive == 0) {
+            float horInput = Input.GetAxis("Horizontal");
+            float verInput = Input.GetAxis("Vertical");
+            Vector3 movementVec = new(horInput, 0, verInput);
+            if (movementVec.magnitude < 0.1f) return;
+            constantVelocity = transform.TransformDirection(movementVec.normalized * dashVelocity);
+            constantVelocityActive = dashTime;
+            SetInactive(dashTime, dashTime);
+        }
     }
 
     void DoGravity() {
+        if (gravityInactive > 0) {
+            gravityVelocity = Vector3.zero;
+            gravityInactive = Mathf.Max(gravityInactive -= Time.fixedDeltaTime, 0);
+            return;
+        }
         if (grounded && gravityVelocity.y < 0) gravityVelocity = Vector3.zero;
-        gravityVelocity += Physics.gravity * Time.deltaTime;
-        characterController.Move(gravityVelocity * (Time.deltaTime * gravityMultiplier));
+        gravityVelocity += Physics.gravity * (Time.fixedDeltaTime * gravityMultiplier);
+        characterController.Move(gravityVelocity * Time.fixedDeltaTime);
+    }
+
+    void HandleConstantVelocity() {
+        if (constantVelocityActive > 0) {
+            characterController.Move(constantVelocity * Time.deltaTime);
+            constantVelocityActive = Mathf.Max(constantVelocityActive - Time.deltaTime, 0);
+        }
+    }
+
+    void SetInactive(float movement, float gravity) {
+        movementInactive = movement;
+        gravityInactive = gravity;
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit) {

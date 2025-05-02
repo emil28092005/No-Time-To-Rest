@@ -9,7 +9,6 @@ public class EyeEnemy : Enemy
     public float offsetDistance = 1f;
 
     [SerializeField] float currentDelay = 0;
-
     [SerializeField] Player target;
 
     void Start() {

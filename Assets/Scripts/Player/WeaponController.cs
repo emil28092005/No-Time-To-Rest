@@ -32,4 +32,6 @@ public class WeaponController : MonoBehaviour
         weapons[ind].SetWeaponState(true);
         currentWeapon = ind;
     }
+
+    public Weapon GetCurrentWeapon() { return weapons.Length > 0 ? weapons[currentWeapon] : null; }
 }

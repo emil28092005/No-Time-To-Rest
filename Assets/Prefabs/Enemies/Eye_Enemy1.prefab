@@ -150,10 +150,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
+  prefab: {fileID: 0}
   projectilePrefab: {fileID: 1562924000103655330, guid: 6a9f72b16f60d5047974eb5893b0326a, type: 3}
   projectileSpawnPosition: {fileID: 8051388752729122526}
   attackRange: 10
-  fireRate: 1
+  fireRate: 0.8
   offsetDistance: 1.5
   currentDelay: 0
   target: {fileID: 0}

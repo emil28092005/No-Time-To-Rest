@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -9,12 +8,13 @@ using Random = UnityEngine.Random;
 public class GameController : MonoBehaviour
 {
     public static GameController i;
-    public SceneAsset deployScene;
+    public string deploySceneName;
     public List<LevelInfo> levels;
     public List<EnemyInfo> enemies;
+    public int startEnemiesNumber = 1;
     public Dictionary<BulletType, int> inventory = new();
 
-    public void Start() {
+    public void Awake() {
         if (i) { Destroy(gameObject); return; }
         i = GetComponent<GameController>();
         DontDestroyOnLoad(gameObject);
@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
             return li;
         }).ToList();
         levels.ForEach(li => {
-            AddEnemyInLevel(SelectEnemyWeighted().prefab, li.scene.name);
+            for (int i = 0; i < startEnemiesNumber; ++i) AddEnemyInLevel(SelectEnemyWeighted().prefab, li.sceneName);
         });
         foreach (BulletType i in Enum.GetValues(typeof(BulletType))) {
             if (i == BulletType.None) continue;
@@ -33,25 +33,25 @@ public class GameController : MonoBehaviour
     }
 
     public Dictionary<GameObject, int> PopEnemies(string sceneName) {
-        LevelInfo li = levels.Find(x => x.scene.name == sceneName);
+        LevelInfo li = levels.Find(x => x.sceneName == sceneName);
         Dictionary<GameObject, int> levelEnemies = new(li.enemies);
         li.enemies.Clear();
         return levelEnemies;
     }
 
     public void AddEnemyInLevel(GameObject enemy, string sceneName) {
-        Dictionary<GameObject, int> levelEnemies = levels.Find(x => x.scene.name == sceneName).enemies;
+        Dictionary<GameObject, int> levelEnemies = levels.Find(x => x.sceneName == sceneName).enemies;
         if (levelEnemies.ContainsKey(enemy)) levelEnemies[enemy] += 1;
         else levelEnemies[enemy] = 1;
     }
 
     public LevelInfo GetLevel(string sceneName) {
-        return levels.Find(x => x.scene.name == sceneName);
+        return levels.Find(x => x.sceneName == sceneName);
     }
 
     void RepairLevel(string sceneName) {
         levels = levels.Select(li => {
-            if (li.scene.name == sceneName) {
+            if (li.sceneName == sceneName) {
                 li.hp = Math.Clamp(li.hp + 20, 0, li.maxHp);
             }
             return li;
@@ -60,7 +60,7 @@ public class GameController : MonoBehaviour
 
     void DamageLevels(string sceneName, float timeSpent) {
         levels = levels.Select(li => {
-            if (li.scene.name != sceneName && !IsLevelDestroyed(li.scene.name)) {
+            if (li.sceneName != sceneName && !IsLevelDestroyed(li.sceneName)) {
                 int damage = (int)(li.enemies.Values.Sum(x => x) * timeSpent / 10);
                 li.hp = Math.Clamp(li.hp - damage, 0, li.maxHp);
             }
@@ -69,16 +69,16 @@ public class GameController : MonoBehaviour
     }
 
     void SpawnEnemies(string sceneName, float timeSpent) {
-        int enemiesToAdd = (int)(timeSpent / 10);
+        int enemiesToAdd = (int)(timeSpent / 10) + 1;
         levels.ForEach(li => {
-            if (li.scene.name == sceneName || IsLevelDestroyed(li.scene.name)) return;
-            for (int i = 0; i < enemiesToAdd; ++i) AddEnemyInLevel(SelectEnemyWeighted().prefab, li.scene.name);
+            if (li.sceneName == sceneName || IsLevelDestroyed(li.sceneName)) return;
+            for (int i = 0; i < enemiesToAdd; ++i) AddEnemyInLevel(SelectEnemyWeighted().prefab, li.sceneName);
         });
     }
 
     void AddBullets() {
         levels.ForEach(li => {
-            if (!IsLevelDestroyed(li.scene.name) && li.factory != BulletType.None) inventory[li.factory] += 10;
+            if (!IsLevelDestroyed(li.sceneName) && li.factory != BulletType.None) inventory[li.factory] += li.bulletsGenerate;
         });
     }
 
@@ -108,7 +108,7 @@ public class GameController : MonoBehaviour
     }
 
     public void LoadDeployScene() {
-        SceneManager.LoadScene(deployScene.name);
+        SceneManager.LoadScene(deploySceneName);
     }
 
     public static void SetCursorState(bool locked) {
@@ -145,10 +145,11 @@ public class GameController : MonoBehaviour
 
 [Serializable]
 public struct LevelInfo {
-    public SceneAsset scene;
+    public string sceneName;
     public int hp;
     public int maxHp;
     public BulletType factory;
+    public int bulletsGenerate;
     public Dictionary<GameObject, int> enemies;
 }
 

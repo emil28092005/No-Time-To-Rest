@@ -15,6 +15,10 @@ public class Minigun : Weapon
         }
     }
 
+    void Start() {
+        if (fireRate != 0) currentDelay = 1 / fireRate;
+    }
+
     void Update() {
         if (fireRate != 0) currentDelay = Mathf.Clamp(currentDelay += Time.deltaTime, 0, 1 / fireRate);
     }
