@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     public string deploySceneName;
     public List<LevelInfo> levels;
     public List<EnemyInfo> enemies;
+    public int startEnemiesNumber = 1;
     public Dictionary<BulletType, int> inventory = new();
 
     public void Awake() {
@@ -23,7 +24,7 @@ public class GameController : MonoBehaviour
             return li;
         }).ToList();
         levels.ForEach(li => {
-            AddEnemyInLevel(SelectEnemyWeighted().prefab, li.sceneName);
+            for (int i = 0; i < startEnemiesNumber; ++i) AddEnemyInLevel(SelectEnemyWeighted().prefab, li.sceneName);
         });
         foreach (BulletType i in Enum.GetValues(typeof(BulletType))) {
             if (i == BulletType.None) continue;
