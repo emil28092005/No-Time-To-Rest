@@ -33,6 +33,12 @@ public class LevelController : MonoBehaviour
         if (aliveEnemies.All(enemy => enemy == null)) {
             GameController.i.OnLevelClear(SceneManager.GetActiveScene().name, timeSpent);
             GameController.i.LoadDeployScene();
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            GameController.i.OnLevelFailed(SceneManager.GetActiveScene().name, timeSpent, aliveEnemies);
+            GameController.i.LoadDeployScene();
+            return;
         }
         timeSpent += Time.deltaTime;
     }
