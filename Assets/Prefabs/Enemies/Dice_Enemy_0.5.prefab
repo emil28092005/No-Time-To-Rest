@@ -81,10 +81,10 @@ PrefabInstance:
       addedObject: {fileID: 2706656759585124322}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f1ba87c0234acfa4da251bb1bf3fe963, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8062664184138368341}
+      addedObject: {fileID: 7925268694638970133}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f1ba87c0234acfa4da251bb1bf3fe963, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7925268694638970133}
+      addedObject: {fileID: 8062664184138368341}
   m_SourcePrefab: {fileID: 100100000, guid: f1ba87c0234acfa4da251bb1bf3fe963, type: 3}
 --- !u!1 &7324912429315955413 stripped
 GameObject:
@@ -112,6 +112,27 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.034196023
   m_Center: {x: 0.000000018626451, y: -0.000000013038518, z: 0.000000014901165}
+--- !u!114 &7925268694638970133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7324912429315955413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53554f0e5c5ef3146a592d5dfe75e390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
+  prefab: {fileID: 0}
+  detectionRadius: 5
+  patrollRadius: 3
+  damage: 5
+  attackRate: 1
+  attackRadius: 1
+  target: {fileID: 0}
+  currentState: 0
 --- !u!195 &8062664184138368341
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -134,24 +155,3 @@ NavMeshAgent:
   m_BaseOffset: 0.033343785
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &7925268694638970133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7324912429315955413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53554f0e5c5ef3146a592d5dfe75e390, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 100
-  prefab: {fileID: 0}
-  detectionRadius: 5
-  patrollRadius: 3
-  damage: 5
-  attackRate: 1
-  attackRadius: 1
-  target: {fileID: 0}
-  currentState: 0

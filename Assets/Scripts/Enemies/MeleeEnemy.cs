@@ -1,3 +1,4 @@
+using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -16,6 +17,10 @@ public class MeleeEnemy : Enemy
     float currentDelay = 0;
 
     void Start() {
+        if (!FindFirstObjectByType<NavMeshSurface>()) {
+            Destroy(gameObject);
+            return;
+        }
         target = FindFirstObjectByType<Player>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         patrollingTarget = GetPatrollingTarget();
